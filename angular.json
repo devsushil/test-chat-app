@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "chat-app"
+    }
+  },
+  "defaultProject": "chat-app",
+  "cli": {
+    "analytics": false
+  }
 }
