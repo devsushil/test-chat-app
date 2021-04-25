@@ -1,0 +1,35 @@
+.chat-container__left {
+  &--messages {
+    display: flex;
+    padding: 1rem;
+    margin-top: 0;
+    border-bottom: 2px solid #04377e;
+    cursor: pointer;
+    &--active {
+      background-color: #04377e;
+    }
+    &__img {
+      flex: 1;
+      img {
+        height: 40px;
+      }
+    }
+    &__users {
+      flex: 2;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      font-size: 12px;
+      &--user {
+        font-weight: 600;
+      }
+    }
+    &__date {
+      flex: 1;
+      color: white;
+      color: white;
+      text-align: right;
+    }
+  }
+}

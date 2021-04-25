@@ -1,0 +1,20 @@
+<div
+  [ngClass]="{
+    'chat-container__right--message': true,
+    'chat-container__right--message--me': me
+  }"
+>
+  <div class="chat-container__right--message__container">
+    <div class="chat-container__right--message--img" *ngIf="!me">
+      <img src="assets/img/user.png" alt="" />
+    </div>
+
+    <div class="chat-container__right--message--chat">
+      <div class="chat-container__right--message--chat__text">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry.
+      </div>
+      <div class="chat-container__right--message--chat__date">April 16</div>
+    </div>
+  </div>
+</div>

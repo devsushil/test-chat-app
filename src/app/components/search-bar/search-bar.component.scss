@@ -1,0 +1,35 @@
+/* Style the search field */
+input[type="text"] {
+  padding: 5px;
+
+  border: 1px solid #2196f3;
+  float: left;
+  width: 80%;
+  background: #2196f3;
+  color: white;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+input:focus {
+  border: 1px solid #2196f3;
+}
+
+/* Style the submit button */
+button {
+  float: left;
+  width: 20%;
+  padding: 5px;
+  background: #2196f3;
+  color: white;
+
+  border: 1px solid #2196f3;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0b7dda;
+}
