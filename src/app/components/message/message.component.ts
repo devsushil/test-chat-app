@@ -8,7 +8,8 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class Message implements OnInit {
   @Input() me: boolean = false;
-
+  @Input() message: string = 'AAA';
+  @Input() date: string = 'hellp';
   constructor() {}
 
   ngOnInit() {}

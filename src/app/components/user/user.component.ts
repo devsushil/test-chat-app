@@ -8,7 +8,9 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class User implements OnInit {
   @Input() active: boolean = false;
-
+  @Input() fullname: string = '';
+  @Input() lastMessage: string = '';
+  @Input() date: string = '';
   constructor() {}
 
   ngOnInit() {}

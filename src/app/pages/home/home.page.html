@@ -1,5 +1,6 @@
 <div class="chat">
-  <div class="chat-container">
+  <div *ngIf="loading">Loading...</div>
+  <div class="chat-container" *ngIf="!loading">
     <div class="chat-container__left">
       <app-component-sidebar>
         <!-- Header -->
@@ -11,17 +12,13 @@
 
         <!-- Content -->
         <div class="chat-container__left--messages__container">
-          <user-component-sidebar active="true"></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
-          <user-component-sidebar></user-component-sidebar>
+          <user-component-sidebar
+            *ngFor="let conversation of converstaions"
+            active="{{conversation.active}}"
+            fullname="{{conversation.fullname}}"
+            lastMessage="{{conversation.lastMessage}}"
+            date="{{conversation.date}}"
+          ></user-component-sidebar>
         </div>
       </app-component-sidebar>
     </div>
@@ -29,7 +26,7 @@
       <app-chat-header>
         <div class="chat-container__right--header">
           <div class="chat-container__right--header__user">
-            <h3>Sushila Sipai</h3>
+            <h3>{{user.name}} {{user.surname}}</h3>
           </div>
 
           <div class="chat-container__right--header__delete">
@@ -38,20 +35,24 @@
         </div>
       </app-chat-header>
       <!-- content -->
-      <div class="chat-container__right--messages">
-        <message-component></message-component>
-        <message-component me="true"></message-component>
-        <message-component></message-component>
-        <message-component me="true"></message-component>
-        <message-component></message-component>
-        <message-component me="true"></message-component>
-        <message-component></message-component>
-        <message-component me="true"></message-component>
+      <div class="chat-container__right--messages" id="chat-container">
+        <message-component
+          *ngFor="let message of activeConversationMessages"
+          [me]="getMe(message.from)"
+          message="{{message.message}}"
+          date="{{message.date}}"
+        ></message-component>
       </div>
 
       <!-- input Box -->
       <div class="chat-container__right--input">
-        <input type="text" placeholder="Send Message.." name="search" />
+        <input
+          [(ngModel)]="currentMessage"
+          (keyup.enter)="sendMsg()"
+          type="text"
+          placeholder="Send Message.."
+          name="search"
+        />
       </div>
     </div>
   </div>
